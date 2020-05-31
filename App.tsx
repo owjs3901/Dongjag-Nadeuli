@@ -1,24 +1,22 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import Header from "./components/Header";
 
 import styles from "./Style"
 import TextList from "./components/TextList";
+import Footer from "./components/Footer";
 import {Home, Main, User} from "./pages";
 
 export default function App() {
 
     //page를 선택함
     const [index,setIndex]=useState(0);
-
-
-
 	return (
 		<View style={styles.container}>
 			<Header/>
-			<TextList/>
+			<ScrollView style={{marginBottom:48}}>
             {
-                ()=> {
+	            (()=> {
                     switch (index) {
                         case 0:
                             return <Home/>
@@ -30,11 +28,10 @@ export default function App() {
                             return <Main/>
 
                     }
-                }
+                })()
             }
-			<User/>
-
-			<Text>Open up App.tsx to start working on your a~~pp!</Text>
+			</ScrollView>
+			<Footer/>
 		</View>
 	);
 }
