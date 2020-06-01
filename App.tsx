@@ -14,7 +14,7 @@ export default function App() {
 	return (
 		<View style={styles.container}>
 			<Header/>
-			<ScrollView style={{marginBottom:48}}>
+			<ScrollView style={{flex:1,marginBottom:48,backgroundColor:'white'}}>
             {
 	            (()=> {
                     switch (index) {

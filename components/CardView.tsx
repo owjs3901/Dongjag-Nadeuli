@@ -8,6 +8,10 @@ const lStyle = StyleSheet.create({
 	listHeader:{
 		backgroundColor:'#FFFFFF',
 		width:'100%',
+		borderTopColor:'black',
+		borderBottomColor:'black',
+		borderTopWidth:1,
+		borderBottomWidth:1,
 	}
 	,
 	listView: {
@@ -24,7 +28,7 @@ const lStyle = StyleSheet.create({
 	},
 	swiper:{
 		height:235-54,
-		backgroundColor:'lightgray'
+		backgroundColor:'white'
 	},
 	swiperEl:{
 		margin:20,
@@ -34,16 +38,26 @@ const lStyle = StyleSheet.create({
 	swiperImg:{
 		height:100,
 		width:100,
-		backgroundColor:'blue'
+		backgroundColor:'#BCE0FD'
 	},
 	swiperTitle:{
-		fontSize:18
+		marginTop:8 ,
+		fontSize:18,
+		color: '#0790FF',
+		fontWeight:'bold'
+	},
+	textList:{
+		backgroundColor:'#FFFFFF',
+		width:'100%',
+		paddingVertical:20,
+		borderBottomColor:'black',
+		borderBottomWidth:1
 	}
 })
 export default function CardView(props:{title:string}) {
 	const [list, setList] = useState(['INF0', 'row 2'])
 	return (
-		<View style={styles.textList}>
+		<View style={lStyle.textList}>
 			<View style={lStyle.listHeader}>
 				<Text style={lStyle.title}>
 					{props.title}
