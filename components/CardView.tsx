@@ -1,17 +1,16 @@
-import React, {useState} from 'react';
-import {FlatList, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {ScrollView, StyleSheet, Text, View,Image} from 'react-native';
 // import Swiper from 'react-native-swiper/src/';
-import styles from "../Style"
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 
 const lStyle = StyleSheet.create({
-	listHeader:{
-		backgroundColor:'#FFFFFF',
-		width:'100%',
-		borderTopColor:'black',
-		borderBottomColor:'black',
-		borderTopWidth:1,
-		borderBottomWidth:1,
+	listHeader: {
+		backgroundColor: '#FFFFFF',
+		width: '100%',
+		borderTopColor: 'black',
+		borderBottomColor: 'black',
+		borderTopWidth: 1,
+		borderBottomWidth: 1,
 	}
 	,
 	listView: {
@@ -19,43 +18,42 @@ const lStyle = StyleSheet.create({
 	},
 	listText: {
 		fontSize: 18,
-		borderBottomWidth:1,
-		borderBottomColor:'gray'
+		borderBottomWidth: 1,
+		borderBottomColor: 'gray'
 	},
-	title:{
-		fontSize:24,
-		margin:8
+	title: {
+		fontSize: 24,
+		margin: 8
 	},
-	swiper:{
-		height:235-54,
-		backgroundColor:'white'
+	swiper: {
+		height: 235 - 54,
+		backgroundColor: 'white'
 	},
-	swiperEl:{
-		margin:20,
-		alignItems:"center",
-		height:235-54,
+	swiperEl: {
+		margin: 20,
+		alignItems: "center",
+		height: 235 - 54,
 	},
-	swiperImg:{
-		height:100,
-		width:100,
-		backgroundColor:'#BCE0FD'
+	swiperImg: {
+		height: 100,
+		width: 100,
+		backgroundColor: '#BCE0FD'
 	},
-	swiperTitle:{
-		marginTop:8 ,
-		fontSize:18,
+	swiperTitle: {
+		marginTop: 8,
+		fontSize: 18,
 		color: '#0790FF',
-		fontWeight:'bold'
+		fontWeight: 'bold'
 	},
-	textList:{
-		backgroundColor:'#FFFFFF',
-		width:'100%',
-		paddingVertical:20,
-		borderBottomColor:'black',
-		borderBottomWidth:1
+	textList: {
+		backgroundColor: '#FFFFFF',
+		width: '100%',
+		paddingVertical: 20,
+		borderBottomColor: 'black',
+		borderBottomWidth: 1
 	}
 })
-export default function CardView(props:{title:string}) {
-	const [list, setList] = useState(['INF0', 'row 2'])
+export default function CardView(props: { title: string, data: Array<(Array<string>)> }) {
 	return (
 		<View style={lStyle.textList}>
 			<View style={lStyle.listHeader}>
@@ -64,22 +62,18 @@ export default function CardView(props:{title:string}) {
 				</Text>
 			</View>
 			<ScrollView style={lStyle.swiper} horizontal>
-				<View style={lStyle.swiperEl}>
-					<View style={lStyle.swiperImg}>
-						<Ionicons name="md-checkmark-circle" size={32} color="green" />
-					</View>
-					<Text style={lStyle.swiperTitle}>
-						시설이름
-					</Text>
-				</View>
-				<View style={lStyle.swiperEl}>
-					<View style={lStyle.swiperImg}>
-						<Ionicons name="md-checkmark-circle" size={32} color="green" />
-					</View>
-					<Text style={lStyle.swiperTitle}>
-						시설이름
-					</Text>
-				</View>
+				{
+					props.data.map((e) => (
+						<View style={lStyle.swiperEl}>
+							<View style={lStyle.swiperImg}>
+								<Image style={lStyle.swiperImg} source={{uri:e[0]}} />
+							</View>
+							<Text style={lStyle.swiperTitle}>
+								{e[1]}
+							</Text>
+						</View>
+					))
+				}
 			</ScrollView>
 		</View>
 	)

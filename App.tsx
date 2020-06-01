@@ -7,6 +7,7 @@ import TextList from "./components/TextList";
 import Footer from "./components/Footer";
 import {Home, Main, User} from "./pages";
 
+
 export default function App() {
 
     //page를 선택함
