@@ -31,7 +31,9 @@ export default function App() {
                 })()
             }
 			</ScrollView>
-			<Footer/>
+			<Footer clickEvent={(ind)=>{
+				setIndex(ind);
+			}}/>
 		</View>
 	);
 }
